@@ -1,0 +1,19 @@
+<launch>
+
+  <!-- send urdf to param server -->
+  <param name="robot_description" command="$(find xacro)/xacro '$(find my_robot)/urdf/my_robot.xacro'" />
+
+  <!-- Send fake joint values -->
+  <!-- Publishes joint state messages for the robot, such as the angles for the non-fixed joints. -->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="use_gui" value="false"/>
+  </node>
+ 
+  <!-- Publishes the robot's state to tf (transform tree). 
+  Your robot model has several frames corresponding to each link/joint. 
+  The robot_state_publisher publishes the 3D poses of all of these links. 
+  This offers a convenient and efficient advantage, especially for more 
+  complicated robots. -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>
+
+</launch>
