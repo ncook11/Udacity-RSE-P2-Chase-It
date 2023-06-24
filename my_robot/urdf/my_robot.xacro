@@ -39,6 +39,10 @@
         </visual>
     </link>
 
+    <gazebo reference="chassis">
+      <material>Gazebo/Blue</material>
+    </gazebo>
+
     <link name="front_caster">
       <pose> 0 0 0.08 0 0 0 </pose>
       
@@ -60,9 +64,6 @@
         <geometry>
             <sphere radius="0.08"/>
         </geometry>
-        <material name = "Blue">
-          <color rgba="0.0 0.0 0.5 1.0"/>
-        </material>
         </visual>
     </link>
 
@@ -95,9 +96,6 @@
         <geometry>
             <sphere radius="0.08"/>
         </geometry>
-        <material name = "Blue">
-          <color rgba="0.0 0.0 0.5 1.0"/>
-        </material>
       </visual>
     </link>
 
@@ -126,7 +124,7 @@
         <collision name = "collision_left_wheel">
         <origin xyz="0.0 0 0" rpy=" 0 1.5707 1.5707"/>
         <geometry>
-          <cylinder length="0.075" radius="0.155"/>
+          <cylinder length="0.06" radius="0.155"/>
         </geometry>
       </collision>
 
@@ -135,14 +133,11 @@
         <geometry>
           <cylinder length="0.06" radius="0.155"/>
         </geometry>
-        <material name = "Red">
-          <color rgba="0.2 0.2 0.6 1.0"/>
-        </material>
       </visual>
     </link>
 
     <joint type="continuous" name="left_wheel_hinge">
-        <origin xyz="0 0.13 0" rpy="0 0 0"/>
+        <origin xyz="0 0.135 0" rpy="0 0 0"/>
         <child link="left_wheel"/>
         <parent link="chassis"/>
         <axis xyz="0 1 0" rpy="0 0 0"/>
@@ -173,16 +168,13 @@
       <visual name = "visual_right_wheel">
       <origin xyz="0.0 0 0" rpy=" 0 1.5707 1.5707"/>
         <geometry>
-          <cylinder length="0.075" radius="0.155"/>
+          <cylinder length="0.06" radius="0.155"/>
         </geometry>
-        <material name = "Red">
-          <color rgba="0.2 0.2 0.6 1.0"/>
-        </material>
       </visual>
     </link>
 
     <joint type="continuous" name="right_wheel_hinge">
-        <origin xyz="0 -0.13 0" rpy="0 0 0"/>
+        <origin xyz="0 -0.135 0" rpy="0 0 0"/>
         <child link="right_wheel"/>
         <parent link="chassis"/>
         <axis xyz="0 1 0" rpy="0 0 0"/>
@@ -202,9 +194,6 @@
         <geometry>
           <box size="0.05 0.05 0.05"/>
         </geometry>
-        <material name = "Red">
-          <color rgba="1.0 0.0 0.0 1.0"/>
-        </material>
       </visual>
       
       <collision name = "camera_collision">
